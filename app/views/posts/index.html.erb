@@ -3,4 +3,25 @@
 
 <div class='tytle'>
 Showpost
+
+
+<ul class='post-lists'>
+      <% @posts.each do |post| %>
+       
+
+       <li class='list'>
+
+        <%= render partial: "post", locals: { post: post } %>
+
+       </li>
+      <% end%>
+    </ul>
+
+
+ <%= link_to('/posts/new', class: 'post-btn') do %>
+  <span class='post-btn-text'>投稿する</span>
+  
+<% end %>
+
+
 </div>
