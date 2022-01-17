@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :get_post_info, only: [:edit, :update, :show, :destroy]
 
 
   def index
@@ -21,6 +22,31 @@ class PostsController < ApplicationController
   end
 
 
+  def edit
+    
+  end
+
+  def update
+    @post.update(post_params)
+
+    if @post.save
+      redirect_to post_path(@post.id)
+    else
+      render :edit
+    end
+  end
+
+  def show
+    
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to root_path
+  end
+
+
+
   private
 
   def post_params
@@ -28,8 +54,8 @@ class PostsController < ApplicationController
                                  :image).merge(user_id: current_user.id)
   end
 
-  def get_item_info
-    @item = Item.find(params[:id])
+  def get_post_info
+    @post = Post.find(params[:id])
   end
 
 end
