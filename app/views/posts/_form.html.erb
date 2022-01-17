@@ -1,0 +1,9 @@
+<%= form_with model: @post, local: true do |f| %>
+
+      
+      <%= f.text_area :title, placeholder: "title"%>
+      <%= f.text_area :sentence, class:"posts-text", id:"post-info",maxlength:"1000" %>
+      <%= f.file_field :image, id:"item-image" %>
+
+      <%= f.submit "SEND" %> 
+    <% end %>

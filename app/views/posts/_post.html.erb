@@ -1,0 +1,58 @@
+<div class ="content_post">  
+
+
+
+  <div class='post'>
+
+    
+    
+    
+     
+         <span class="name" >
+          <a href ="/users/<%= post.user.id %>">
+            <span>投稿者</span><%= post.user.nickname%>
+          </a>
+           
+         </span>
+
+   </div>
+
+
+   <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+          
+            
+
+             
+            
+             
+            
+           <%#=image_tag post.image.variant(resize: '500x500'), class: 'post-image' if post.image.attached? %>
+            <div class= "post-title">
+              <%= post.title%>  
+              </div>
+
+            <%=image_tag post.image.variant(resize: '500x500'), class: 'post-image' if post.image.attached? %>
+
+            <div class="card-body">
+            
+
+              <p class="card-text"> <%= post.sentence%> </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+
+                <% if user_signed_in? %>
+
+                  <button type="button" class="btn btn-sm btn-outline-secondary">  <%= link_to  "view", post_path(post.id), class:"show-post-link"  %>  </button>
+                  
+
+                  <% end%>
+
+                </div>
+                <small class="text-muted"><%= post.created_at %> </small>
+              </div>
+            </div>
+            </div>
+        </div>      
+
+</div>         
