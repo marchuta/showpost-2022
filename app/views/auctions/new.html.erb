@@ -1,0 +1,51 @@
+<div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+          
+            
+
+             
+            
+             
+            
+           <%#=image_tag post.image.variant(resize: '500x500'), class: 'post-image' if post.image.attached? %>
+            <div class= "post-title">
+              <%= @post.title%>  
+              </div>
+
+            <%=image_tag @post.image.variant(resize: '500x500'), class: 'post-image' if @post.image.attached? %>
+
+            <div class="card-body">
+            
+
+              <p class="card-text"> <%= @post.sentence%> </p>
+              <div class="d-flex justify-content-between align-items-center">
+
+                <small class="text-muted"><%= @post.created_at %> </small>
+              </div>
+            </div>
+            </div>
+        </div>      
+
+
+
+
+
+
+<%= form_with model: [@post, @auction], local: true do |f| %>
+
+<div class="price-content">
+          <div class="price-text">
+            <span>価格</span>
+            <span class="indispensable">必須</span>
+          </div>
+          <span class="sell-yen">¥</span>
+          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
+        </div>
+
+
+<%end%>
+
+
+       <div class= 'top-page-direction'>
+  <li><%= link_to "トップページへ", posts_path, class: "top-page-direction-link" %></li> 
+</div>

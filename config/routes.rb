@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'posts#index'
 
   resources :posts do
-
+    resources :auctions, only:[:index,:new,:create]
   end
   
 end

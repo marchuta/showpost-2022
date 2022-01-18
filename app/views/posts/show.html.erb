@@ -22,8 +22,8 @@
                 <div class="btn-group">
 
 
-                <% if user_signed_in? %>
-                <% if current_user.id == @post.user_id   %>
+                 <% if user_signed_in? %>
+                 <% if current_user.id == @post.user_id   %>
                 
                   <button type="button" class="btn btn-sm btn-outline-secondary"> 
                   <%= link_to "delete", post_path(@post.id), method: :delete, class:"post-destroy" %>
@@ -32,6 +32,11 @@
                   <button type="button" class="btn btn-sm btn-outline-secondary"> 
                   <%= link_to  "edit", edit_post_path(@post.id), class:"edit-post-link"  %>
                   </button>
+
+                  <button type="button" class="btn btn-sm btn-outline-secondary"> 
+                  <%= link_to  "sell-post", new_post_auction_path(@post.id), class:"edit-post-link"  %>
+                  </button>
+
 
                   <%end%>
 
